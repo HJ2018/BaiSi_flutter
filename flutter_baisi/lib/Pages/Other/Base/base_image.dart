@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -7,7 +5,6 @@ class APPImageUtils {
 
   /// 加载本地图片
   static ImageProvider getAssetImage(String name, {String path = "",String format = 'png'}) {
-
     return AssetImage(getImgPath(name, path: path,format: format));
   }
   static String getImgPath(String name, {String path = "" ,String format = 'png'}) {

@@ -5,8 +5,6 @@ import 'package:flutter_baisi/Pages/FriendTrends/friend_trends_page/view.dart';
 import 'package:flutter_baisi/Pages/Me/me_page/view.dart';
 import 'package:flutter_baisi/Pages/New/new_page/view.dart';
 
-import 'Base/base_image.dart';
-
 class IndexPage extends StatefulWidget {
   const IndexPage({Key? key}) : super(key: key);
 
@@ -85,7 +83,7 @@ class _IndexPageState extends State<IndexPage> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            /// 后面升级版本用这个
+            //TODO   后面升级版本用这个
             // Image(image: APPImageUtils.getAssetImage(imageName,path: ImagePath.tabBar))
             Icon(tabBarIcon,color:_getColor(index),),
             Text(name, style: TextStyle(color: _getColor(index)))
@@ -94,15 +92,17 @@ class _IndexPageState extends State<IndexPage> {
   }
 
 
-
+  ///
   ///taBar 点击通过index切换
+
   void _onItemTapped(int index) {
     setState(() { taBarIdx = index;});
   }
 
 
-
+  ///
   /// 切换颜色
+
   Color _getColor(int value) {
     return taBarIdx == value ? Colors.red : const Color(0XFFBBBBBB);
   }
