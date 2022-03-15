@@ -50,14 +50,14 @@ class _IndexPageState extends State<IndexPage> {
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: <Widget>[
-        _tabBarButton(0, "精华",ImageName.tabBarEssence),
-        _tabBarButton(1, "新贴",ImageName.tabBarNew),
+        _tabBarButton(0, "精华",tabBarIcon: Icons.home),
+        _tabBarButton(1, "新贴",tabBarIcon: Icons.fiber_new_rounded),
         Column(
           mainAxisSize: MainAxisSize.min,
           children:  [Container()],
         ),
-        _tabBarButton(2, "关注",ImageName.tabBarFriendTrends),
-        _tabBarButton(3, "我的",ImageName.tabBarMe),
+        _tabBarButton(2, "关注",tabBarIcon: Icons.people_outline_rounded),
+        _tabBarButton(3, "我的",tabBarIcon: Icons.person_pin_sharp),
       ],
     );
   }
@@ -79,21 +79,15 @@ class _IndexPageState extends State<IndexPage> {
 
 
   /// tabBar 按钮
-  Widget _tabBarButton(int index,String name,String imageName){
+  Widget _tabBarButton(int index,String name,{String imageName = "",IconData? tabBarIcon = Icons.home}){
     return  GestureDetector(
         onTap: () { _onItemTapped(index);},
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-
-            const SizedBox(
-              width: 12, height: 12,
-              child: Image(
-                width: 38,height: 43,
-                image: AssetImage('images/tabBar/tabBar_essence_icon.png'),
-                fit: BoxFit.fill,
-              ),
-            ),
+            /// 后面升级版本用这个
+            // Image(image: APPImageUtils.getAssetImage(imageName,path: ImagePath.tabBar))
+            Icon(tabBarIcon,color:_getColor(index),),
             Text(name, style: TextStyle(color: _getColor(index)))
           ],
         ));
