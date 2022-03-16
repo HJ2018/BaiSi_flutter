@@ -1,27 +1,18 @@
-
 import 'package:flutter/material.dart';
 
-
-const Color _navbgColor = Colors.white;
-const Color _titleColorWhite = Colors.white;
-const Color _titleColorBlack = Colors.black;
-const double _titleFontSize = 18.0;
-const double _textFontSize = 16.0;
-const double _itemSpace = 15.0; //右侧item内间距
-const double _imgWH = 22.0; //右侧图片wh
-const double _rightSpace = 5.0; //右侧item右间距
-const Brightness _brightness = Brightness.light;
 
 backAppBar(BuildContext context, String title,
     { String? rightText,
       String? rightImgPath ,
-      Color backgroundColor = _navbgColor,
-      Brightness brightness = _brightness,
+      Color backgroundColor = Colors.white,
+      Brightness brightness =  Brightness.light,
       Function? rightItemCallBack,
       Color? rightTextColor,
       bool isShowColor = false,
       bool isBack = true,
-      Function? backCallBack}) {
+      Function? backCallBack,
+      PreferredSizeWidget? bottom,
+    }) {
   return baseAppBar(
     context,
     title,
@@ -34,6 +25,7 @@ backAppBar(BuildContext context, String title,
     brightness: brightness,
     rightTextColor: rightTextColor,
     isShowColor: isShowColor,
+    bottom: bottom,
 
   );
 }
@@ -47,8 +39,8 @@ baseAppBar(
       Color? rightTextColor,
       bool? isShowColor,
       bool isBack = true,
-      Color backgroundColor = _navbgColor,
-      Brightness brightness = _brightness,
+      Color backgroundColor = Colors.white,
+      Brightness brightness =  Brightness.light,
       double elevation = 0,
       PreferredSizeWidget? bottom,
       Function? rightItemCallBack,
@@ -56,18 +48,18 @@ baseAppBar(
     }) {
   Color _color = (backgroundColor == Colors.transparent ||
       backgroundColor == Colors.white )
-      ? _titleColorBlack
-      : _titleColorWhite;
+      ? Colors.black
+      : Colors.white;
 
   Widget rightItem = const Text("");
   if (rightText != null) {
     rightItem = InkWell(
       child: Container(
-          margin: const EdgeInsets.all(_itemSpace),
+          margin: const EdgeInsets.all(15),
           color: Colors.transparent,
           child: Center(
               child: Text(rightText,
-                  style: TextStyle(fontSize: _textFontSize, color: isShowColor == true? rightTextColor :_color)))),
+                  style: TextStyle(fontSize: 16, color: isShowColor == true? rightTextColor :_color)))),
       onTap: () {
         if (rightItemCallBack != null) {
           rightItemCallBack();
@@ -79,8 +71,7 @@ baseAppBar(
     rightItem = IconButton(
       icon: Image.asset(
         rightImgPath,
-        width: _imgWH,
-        height: _imgWH,
+        width: 22, height: 22,
         color: _color,
       ),
       onPressed: () {
@@ -92,7 +83,7 @@ baseAppBar(
   }
   return AppBar(
     title:
-    Text(title, style: TextStyle(fontSize: _titleFontSize, color: _color)),
+    Text(title, style: TextStyle(fontSize: 18, color: _color)),
     centerTitle: true,
     backgroundColor: backgroundColor,
     brightness: brightness,
@@ -122,7 +113,7 @@ baseAppBar(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           rightItem,
-          const SizedBox(width: _rightSpace),
+          const SizedBox(width: 5),
         ],
       ),
     ],

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_baisi/Pages/Essence/essence_page/widget.dart';
 import 'package:flutter_baisi/Pages/Other/Base/Base_AppBar.dart';
 import 'package:get/get.dart';
-
 import 'logic.dart';
 
 class EssencePageWidget extends StatelessWidget {
@@ -14,8 +14,10 @@ class EssencePageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:backAppBar(context, "精华",isBack: false),
-      body:const Text("data"),
+      appBar:backAppBar(context, "精华",isBack: false,
+        bottom: essenceTabBarBottom(state)
+      ),
+      body:essenceContent(state),
     );
   }
 }

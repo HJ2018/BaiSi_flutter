@@ -1,19 +1,20 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'state.dart';
 
-class EssencePageLogic extends GetxController {
+class EssencePageLogic extends GetxController with GetSingleTickerProviderStateMixin{
   final EssencePageState state = EssencePageState();
 
-  @override
-  void onReady() {
-    // TODO: implement onReady
-    super.onReady();
-  }
+
 
   @override
-  void onClose() {
-    // TODO: implement onClose
-    super.onClose();
+  void onInit() {
+    // TODO: implement onInit
+    super.onInit();
+    state.tabController = TabController(length: state.tabs!.length, vsync: this);
   }
+
+
+
 }
