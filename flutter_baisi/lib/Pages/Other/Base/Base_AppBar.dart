@@ -92,11 +92,11 @@ baseAppBar(
     leading: isBack == false
         ? leftItem
         : IconButton(
-//      icon: Icon(Icons.arrow_back_ios,color: _color),
-      icon:ImageIcon(
-        const AssetImage("images/otherImage/back_black.png"),
-        color: _color,
-      ),
+        icon: Icon(Icons.arrow_back_ios,color: _color),
+      // icon:ImageIcon(
+      //   const AssetImage("images/otherImage/back_black.png"),
+      //   color: _color,
+      // ),
       iconSize: 18,
       padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
       onPressed: () {

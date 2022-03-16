@@ -11,7 +11,6 @@ Widget essenceContent(EssencePageState state){
 }
 
 
-
 ///* tabBar样式******/
 PreferredSizeWidget essenceTabBarBottom(EssencePageState state){
   return TabBar(

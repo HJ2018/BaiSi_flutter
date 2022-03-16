@@ -6,8 +6,6 @@ import 'state.dart';
 class EssencePageLogic extends GetxController with GetSingleTickerProviderStateMixin{
   final EssencePageState state = EssencePageState();
 
-
-
   @override
   void onInit() {
     // TODO: implement onInit

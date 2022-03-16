@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'essence_all/view.dart';
 import 'essence_jokes/view.dart';
 import 'essence_picture/view.dart';
@@ -30,10 +29,8 @@ class EssencePageState {
     }).toList();
 
     tabBarView = [
-      EssenceAllWidget(),
-      EssenceVideoWidget(),
-      EssenceVoiceWidget(),
-      EssencePictureWidget(),
+      EssenceAllWidget(), EssenceVideoWidget(),
+      EssenceVoiceWidget(), EssencePictureWidget(),
       EssenceJokesWidget(),
    ];
 
